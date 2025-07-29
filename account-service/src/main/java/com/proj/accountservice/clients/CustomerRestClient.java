@@ -15,9 +15,14 @@ public interface CustomerRestClient {
 
     default  Customer getDefaultCustomer(Long id, Exception exception){
 
-        return  Customer.builder().id(id).firstName("Not avilable").lastName("Not available").build();
+        return  Customer.builder().id(id).firstName("Not available").lastName("Not available").build();
     }
 
+    @CircuitBreaker(name = "customerService"  ,fallbackMethod = "getAllCustomers")
     @GetMapping("/customers")
     List<Customer> allCustomers();
+
+    default  List<Customer> getAllCustomers(Long id, Exception exception){
+        return  List.of();
+    }
 }
