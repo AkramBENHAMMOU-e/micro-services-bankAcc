@@ -1,0 +1,3 @@
+[submodule "bankAcc-config-repo"]
+	path = bankAcc-config-repo
+	url = https://github.com/AkramBENHAMMOU-e/bankAcc-config-repo.git
